@@ -27,7 +27,7 @@ def to_absolute_path(rel_path: str) -> str:
 
 
 rl_settings = {
-    "load_checkpoint": True,
+    "load_checkpoint": False,
     "checkpoint": to_absolute_path("checkpoints/runs/twip_balancing/nn/twip.pth"),
     "train": True,
 }

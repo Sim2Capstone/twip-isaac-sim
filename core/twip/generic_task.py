@@ -26,7 +26,7 @@ class GenericTask(BaseTask):
 
         config["num_agents"] = 1
         config["num_observations"] = 4
-        config["num_actions"] = 2
+        config["num_actions"] = 1
         config["num_states"] = 0
 
         config["observation_space"] = gym.spaces.Box(
@@ -80,7 +80,7 @@ class GenericTask(BaseTask):
         twip_agent = self.base_env.agent
 
         twip_agent.set_target_velocity(WheelDriveType.LEFT, actions[0, 0].item())
-        twip_agent.set_target_velocity(WheelDriveType.RIGHT, actions[0, 1].item())
+        twip_agent.set_target_velocity(WheelDriveType.RIGHT, actions[0, 0].item())
 
         self.base_env.step(_render=not self.headless)
 
@@ -92,7 +92,7 @@ class GenericTask(BaseTask):
                 twip_roll,
                 twip_obs_dict["ang_vel"][0],
                 actions[0, 0].item(),
-                actions[0, 1].item(),
+                actions[0, 0].item(),
             ],
         )
         obs = {
